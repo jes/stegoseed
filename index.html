@@ -1,26 +1,38 @@
 <!doctype html>
 <html>
 <head>
+<link rel="stylesheet" href="bootstrap.min.css" type="text/css">
 <title>Stegoseed</title>
 </head>
 <body>
+<div class="container">
 <h1>Stegoseed</h1>
+<p>Read more about this tool in <a href="http://incoherency.co.uk/blog/stories/steganographic-bitcoin-seeds.html">my blog post</a>.</p>
 <p>You can generate BIP39 wallet seeds at <a href="https://iancoleman.github.io/bip39/">https://iancoleman.github.io/bip39/</a>.</p>
 <p>This tool uses a Markov model of a text corpus to generate sentences which encode Bitcoin wallets by including <a href="https://github.com/bitcoin/bips/blob/master/bip-0039/english.txt">BIP39 words</a> in the text.</p>
+
+<p>You should only use the tool directly on the web to play around (not least because I still don't have any HTTPS...).
+If you want to use it for real purposes you should download the code off
+Github: <a href="https://github.com/jes/stegoseed">https://github.com/jes/stegoseed</a> and run it on a computer which doesn't have any Internet access,
+to make sure nothing can exfiltrate your wallet seed. It should also go without saying that you should generate your own BIP39 seed, and <b>do not just
+use the example</b> one that is shown by default to everybody.</p>
 
 <h3>Hide</h3>
 <span id="status">Still loading (got 7M to load)...</span><br>
 Enter your seed:<br>
-<input id="seed" style="width:100%" value="door ceiling casual grow issue reopen remind trouble among traffic liar exit"><br>
-<button id="go">Stego</button><br>
+<input class="form-control" id="seed" style="width:100%" value="door ceiling casual grow issue reopen remind trouble among traffic liar exit"><br>
+<button class="btn btn-primary" id="go">Stego</button><br>
 <div style="font-family: monospace; border: solid 1px #ccc" id="stego"></div>
 
 <h3>Unhide</h3>
 Enter your text:<br>
-<textarea id="text" style="width:100%; height:100px"></textarea>
-<button id="ungo">Unstego</button><br>
+<textarea class="form-control" id="text" style="width:100%; height:100px"></textarea>
+<button class="btn btn-primary" id="ungo">Unstego</button><br>
 <div style="font-family: monospace" id="unstego"></div>
 
+<div style="margin-bottom: 200px"></div>
+
+</div>
 <script src="jquery-3.1.0.min.js"></script>
 <script type="text/javascript">
 var wait = false;
