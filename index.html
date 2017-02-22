@@ -130,7 +130,10 @@ function unstegoseed() {
         }
     }
 
-    $('#unstego').html(seedwords.join(' '));
+    if (seedwords.length > 0)
+        $('#unstego').html(seedwords.join(' '));
+    else
+        $('#unstego').html("(no BIP39 words found)");
 }
 
 $('#go').click(function() {
