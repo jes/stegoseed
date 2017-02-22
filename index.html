@@ -112,7 +112,9 @@ function unstegoseed() {
 
     for (var i = 0; i < words.length; i++) {
         var w = words[i];
-        if (w in markovdata["bip39"]) {
+        var simplew = w.toLowerCase();
+        simplew.replace(/[^a-z]/g, '');
+        if (simplew in markovdata["bip39"]) {
             seedwords.push(w);
         }
     }
